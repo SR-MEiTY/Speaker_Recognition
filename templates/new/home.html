@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+		
+		<link href="{{url_for('static', filename='/css/new/base_style.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/css/new/index.css')}}" type="text/css" rel="stylesheet">
+		<link href="{{url_for('static', filename='/images/new/i-SpeakR_icon2.ico')}}" type="image/x-icon" rel="icon">
+
+		<title>i-SpeakR</title>
+	</head>
+
+	<body lang="en-IN">
+
+		<div class="flex-container title_pane">
+			<img src="{{url_for('static', filename='/images/new/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
+			<img src="{{url_for('static', filename='/images/new/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px">
+		</div>
+
+		<div class="flex-container menu_pane">
+			<div class="menu_items hyperlink" onclick="window.open('https://sr-meity.github.io/Manuals/index.html', '_self');">
+				Home
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('https://sr-meity.github.io/Manuals/about.html', '_self');">
+				About
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('https://sr-meity.github.io/Manuals/resources.html', '_self');">
+				Resources
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink selected_menu">
+				Demo
+			</div>
+			&emsp;
+			<div class="menu_items hyperlink" onclick="window.open('https://sr-meity.github.io/Manuals/hands_on.html', '_self');">
+				Hands-on
+			</div>
+			<div class="empty_menu_item">
+			</div>
+		</div>
+
+		<div class="flex-container dashboard">
+			<div class="content_space">				
+				<div class="heading1">DEMO</b></div>
+
+				<div class="heading2">Please choose a function</div>
+
+				<div class="subsection">
+				
+	    				<form action="registration" method="post">
+						<button class="registration" role="button">
+	    						Enrollment of Speaker
+	    					</button>
+	    				</form>
+	    				
+	    				<form action="verification" method="post">
+							<button class="verification" role="button">
+	       						Verification of Speaker
+	       					</button>
+	    				</form>
+
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="flex-container footer">
+			<div>© Designed and maintained by IIT Dharwad & IIIT Dharwad.</div>
+		</div>
+
+	</body>
+</html>

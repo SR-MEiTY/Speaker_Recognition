@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Page Title-->
+	<title>Speaker Recognition System</title>
+	<!--Links-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--Links of Required CSS files-->
+	<link rel="stylesheet" type="text/css" href="static/css/index.css">
+	<link rel="stylesheet" type="text/css" href="static/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="static/css/userDetails.css">
+	<link rel="stylesheet" type="text/css" href="static/css/speech2text.css">
+
+	<script type="text/javascript" src="static/js/stickyNav.js"></script>
+	<script type="text/javascript" src="static/js/getAudioDevices.js"></script>
+
+	<!--Internal CSS-->
+	<style type="text/css">
+		.aboutus {
+			margin: 50px 50px 20px 50px;
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		.stickyNav {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<!--Page Header-->
+	<header class="header">
+		<p class="title">Development and Deployment of Scalable Speaker Recognition Technology in Different Applications</p>
+	</header>
+
+	<!--Page Navigation Links-->
+	<nav class="navbar" id="navbar" name="navbar">
+		<a href="/">Home</a>
+  		<!-- <a href="registration">User Registration</a>
+  		<a href="training">Training</a>
+  		<a href="testing">Testing</a>
+  		<a href="contactus">Contact us</a> -->
+  	</nav>
+	
+	<!--Section for Data-->
+	<section class="row">
+		<!--Page Left Column-->
+		<aside class="leftcol">
+			<h3></h3>
+		</aside>
+
+		<!--Page Main Cntent-->
+		<main class="main">
+			<h2 align="Center" class="mainTitle">
+				Welcome to the Speaker Recognition System
+			</h2> <hr>
+			<!--Input Form for taking the user data-->
+			<section>
+				<div class="userDetails">
+					<h3 class="head5">Please fill the following details carefully.</h3>
+					<form class="userInfo" id="userInfo" action="/store" method="post">
+						<!--First Name of the Speaker-->
+						<div class="trow">
+							<label for="fname">First Name: </label>
+							<input type="text" name="fname" id="fname" required>
+						</div>
+
+						<!--Last Name of the Speaker-->
+						<div class="trow">
+							<label for="lname">Last Name: </label>
+							<input type="text" name="lname" id="lname" required>
+						</div>
+
+						<!--Gender of the Speaker-->
+						<div class="trow">
+							<label for="gender">Gender: </label>
+							<select name="gender" id="gender" required>
+								<option disabled selected value> -- Select Gender -- </option>
+								<option value="M">Male</option>
+								<option value="F">Female</option>
+								<option value="O">Other</option>
+							</select>
+						</div>
+
+						<!--Age of the Speaker-->
+						<div class="trow">
+							<label for="age">Age:</label>
+							<input type="number" name="age" id="age" required min="8" max="100">
+						</div>
+							
+						<!--Speaker ID of the Speaker-->
+						<!-- <div class="trow">
+							<label for="username">Speaker ID: </label>
+							<input type="text" name="speakerid" id="speakerid" required>
+						</div> -->
+					</form>
+
+					<section class="convertedText">
+						<h4 style="text-align: center;">Read the following Text</h4>
+						India, officially the Republic of India is a country in South Asia. It is the seventh-largest country by area, the second-most populous country, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; its Andaman and Nicobar Islands share a maritime border with Thailand, Myanmar and Indonesia. India has been a federal republic since 1950, governed in a democratic parliamentary system. India's population grew from 361 million in 1951 to 1.211 billion in 2011. During the same time, its nominal per capita income increased from US$64 annually to US$1,498, and its literacy rate from 16.6% to 74%. India is a megadiverse country, a term employed for 17 countries which display high biological diversity and contain many species exclusively indigenous, or endemic, to them. India is a habitat for 8.6% of all mammal species, 13.7% of bird species, 7.9% of reptile species, 6% of amphibian species, 12.2% of fish species, and 6.0% of all flowering plant species. Fully a third of Indian plant species are endemic. India also contains four of the world's 34 biodiversity hotspots, or regions that display significant habitat loss in the presence of high endemism. India is a federation with a parliamentary system governed under the Constitution of India—the country's supreme legal document. India is a federal union comprising 28 states and 8 union territories.
+					</section>
+
+					<section class="audioStream">
+						<form class="audioForm" name="audioForm" id="audioForm">
+							<input type="button" class="recordButton" name="recordButton" id="recordButton" value="START">
+							<input type="button" name="stopRecording" class="stopRecording" id="stopRecording" value="STOP">
+							<p class="timer" id="timer" name="timer">Not Recording.</p>
+						</form>
+					</section>
+
+					<!--Submit Button to submit the data and redirect to the video recording page-->
+					<!-- <div class="submitDiv">
+						<button class="subButton" name="submit" value="submit" form="userInfo">
+							Submit
+						</button>
+					</div> -->
+				</div>
+			</section>
+		</main>
+
+		<!--Page Right Column-->
+		<aside class="rightcol">
+			<h3></h3>
+		</aside>
+	</section>
+
+	<!--Page Footer-->
+	<!-- <footer class="footer">
+		<aside class="footcol">
+			<h3>About Us</h3>
+			<p>IIIT, Dharwad</p>
+			<a href="contactus">Contact us</a>
+		</aside>
+		<aside class="footcol">
+			<h4>Related Links</h4>
+			<a href="http://www.walchandsangli.ac.in" target="_blank">IIIT Dharwad</a> <br>
+			<a href="https://www.aicte-india.org/" target="_blank">AICTE</a> <br>
+			<a href="https://www.ugc.ac.in/" target="_blank">UGC</a> 
+		</aside>
+		<aside class="footcol">
+			<h4>Follow IIIT Dharwad</h4>
+			<a href="https://www.facebook.com/" target="_blank">Facebook</a> <br>
+			<a href="https://twitter.com/" target="_blank">Twitter</a>
+			<br>
+			<a href="https://www.instagram.com/" target="_blank">Instagram</a> 
+		</aside>
+		<section align="Center">
+			<i><b>All rights are reserved to IIIT Dharwad</b></i>
+		</section>
+	</footer> -->
+</body>
+</html>
+
+<script type="text/javascript">
+	recordButton.addEventListener('click', (ev) => {
+		if(fname.value=='' || lname.value==''||gender.value==''||age.value=='') {
+			alert('Please fill all of the speaker details!!!')
+		}
+		else {
+			tstart();
+			timer();
+		}
+	});
+	stopRecording.addEventListener('click', (ev) => {
+		tstop();
+	})
+</script>

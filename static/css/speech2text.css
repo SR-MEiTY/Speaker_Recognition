@@ -1,0 +1,161 @@
+.audioStream {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	min-height: auto;
+	text-align: center;
+	border: solid 1px;
+}
+
+.audioForm {
+		//text-align: left;
+		padding-left: 50px;
+		padding-right: 50px;
+    width: 90%;  
+    overflow: hidden;  
+    margin-left: 5%; 
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-content: center;
+    /*margin: 20 0 0 450px; */ 
+    background-color: deepskyblue;  
+    border-radius: 15px;
+    font-family: Cambria;
+}
+
+.convertedText {
+	width: 100%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	box-shadow: 0 9px 18px rgba(0,0,0,0.4);
+	background-color: white;
+	min-height: 150px;
+	font-family: Cambria;
+}
+
+
+/*Record Button Properties*/
+.recordButton, .stopRecording {
+	appearance: none;
+	background-color: #111111;
+	border: 2px solid #1A1A1A;
+	border-radius: 40px;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	font-size: 16px;
+	font-weight: 600;
+	line-height: normal;
+	margin: 0;
+	min-height: 30px;
+	min-width: 0;
+	outline: none;
+	padding: 16px 24px;
+	text-align: center;
+	text-decoration: none;
+	transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	width: 20%;
+	will-change: transform;
+  	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.recordButton:disabled, .stopRecording:disabled {
+  pointer-events: none;
+}
+
+.recordButton:hover, .stopRecording:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.recordButton:active, .stopRecording:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/*getAudioDevices Button Properties */
+.getAudioDevices {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 30px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  margin-top: 2%;
+}
+
+.getAudioDevices:hover,
+.getAudioDevices:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.getAudioDevices:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.getAudioDevices:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+#speakerID
+{
+  width: 50%;
+  height: auto;
+  min-height: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: none;  
+  border-radius: 3px;  
+  padding-left: px;
+  font-family: Cambria;
+  display: table-cell;
+}
+
+.forgotID
+{
+	font-family: Cambria;
+	font-weight: bold;
+}
+
+.idInstruct
+{
+	font-family: Cambria;
+}
+
+.output
+{
+	font-weight: bold;
+}

@@ -1,0 +1,285 @@
+.flex_row{
+	display: flex;
+	flex-direction: row !important;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex_col{
+	display: flex;
+	flex-direction: column !important;
+	align-items: center;
+	justify-content: space-between;
+}
+.userDetails{
+	text-align: left;
+	padding-left: 50px;
+	padding-right: 50px;
+	width: 90%;	
+	overflow: hidden;	
+	margin-left: 5%; 
+	margin-right: 5%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	align-content: center;
+	/*margin: 20 0 0 450px; */ 
+	background-color: deepskyblue;	
+	border-radius: 15px;
+	font-family: Cambria;
+}
+.head5{
+	text-align: center;
+}
+.userInfo{
+	position: relative;
+	display: table;
+	width: 100%;
+	border: 1px solid black;
+	padding: 25px;
+}
+.table_div{
+	position: relative;
+	width: 45%;
+	margin: auto;
+}
+.trow{
+	width: 75%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.recording_menu{
+	position: fixed;
+	top: 25vh;
+	left: 10vw;
+	width: 80vw;
+	padding: 10px;
+	border: 3px solid transparent;
+	border-radius: 10px;	
+	background-color: white;
+	box-shadow: 5px 5px 10px 15px gray;
+	opacity: 1;
+	font-family:georgia,garamond,serif;
+	visibility: hidden;
+}
+.start_recording_switch{
+	border: 1px solid rgba(92, 186, 69, 1);
+	background-color: rgba(92, 186, 69, 0.9);
+	padding: 10px;
+	border-radius: 5px;
+	color: white;
+	font-weight: 900;
+}
+.start_recording_switch:hover{
+	background-color: rgba(92, 186, 69, 1);
+	box-shadow: 1px 1px 5px 5px gray;
+}
+.close_menu{
+	border-radius: 50px;
+	border: 1px solid black;
+	padding: 5px;
+	position: absolute;
+	top: 0px;
+	right: 10px; 
+}
+label{	
+	color: black;	
+	font-size: 17px;
+	font-family: Cambria;
+	display: table-cell;
+	width: 35%;
+}
+#fname, #lname{
+	width: 100%;
+	height: auto;
+	min-height: 30px;
+	margin-bottom: 10px;
+	border-radius: 3px;	
+	padding-left: px;
+	font-family: Cambria;
+	display: table-cell;
+}
+#gender{	
+	width: 100%;
+	height: auto;
+	min-height: 30px;
+	margin-bottom: 20px;
+	border-radius: 3px;	
+	padding-left: px;
+	font-family: Cambria;
+	display: table-cell;
+}
+#age{	
+	width: 100%;
+	height: auto;
+	min-height: 30px;
+	border-radius: 3px;
+	margin-bottom: 20px; 
+	padding-left: px;
+	font-family: Cambria;
+	display: table-cell;
+}
+input{
+	display: table-cell;
+}
+.submitDiv{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.subButton{
+	text-align: center;
+	min-height: 30px;
+	font-size: 1.01em;
+	font-weight: bold;
+	font-family: Cambria, serif;
+	width: 20%;
+}
+.audioStream {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	min-height: auto;
+	text-align: center;
+	border: solid 1px;
+}
+.convertedText {
+	width: 100%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	box-shadow: 0 9px 18px rgba(0,0,0,0.4);
+	background-color: white;
+	min-height: 150px;
+	font-family: Cambria;
+}
+.button{
+	width: 100px;
+	height: 50px;
+	word-wrap: break-word;
+	font-size: 20px;
+	border-radius: 50px;
+	align-items: center;
+	text-align: center;
+	background-clip: padding-box;
+	background-color: rgba(182, 136, 191, 1);
+	border: 1px solid transparent;
+	border-radius: .25rem;
+	box-shadow: 1px 1px 3px 1px grey;
+	box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+	font-weight: 900;
+}
+.button:disabled{
+	pointer-events: none;
+}
+.button:hover{
+	box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+	transform: translateY(-2px);
+}
+.button:active{
+	box-shadow: none;
+	transform: translateY(0);
+}
+.record_button{
+	background-color: rgba(53, 171, 79, 1);
+	opacity: 0.8;
+}
+.record_button:hover{
+	background-color: rgba(53, 171, 79, 1);
+	opacity: 1;
+}
+.stop_button{
+	background-color: rgba(212, 94, 21, 1);
+	opacity: 0.8;
+}
+.stop_button:hover{
+	background-color: rgba(212, 94, 21, 1);
+	opacity: 1;
+}
+/*getAudioDevices Button Properties */
+.getAudioDevices {
+	align-items: center;
+	background-color: #0A66C2;
+	border: 0;
+	border-radius: 100px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 20px;
+	max-width: 480px;
+	min-height: 30px;
+	min-width: 0px;
+	overflow: hidden;
+	padding: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	touch-action: manipulation;
+	transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+	user-select: none;
+	-webkit-user-select: none;
+	vertical-align: middle;
+	margin-top: 2%;
+}
+.getAudioDevices:hover,.getAudioDevices:focus { 
+	background-color: #16437E;
+	color: #ffffff;
+}
+.getAudioDevices:active {
+	background: #09223b;
+	color: rgb(255, 255, 255, .7);
+}
+.getAudioDevices:disabled{ 
+	cursor: not-allowed;
+	background: rgba(0, 0, 0, .08);
+	color: rgba(0, 0, 0, .3);
+}
+#speakerID{
+	width: 200px;
+	height: auto;
+	min-height: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	border-radius: 3px;	
+	padding-left: px;
+	font-family: Cambria;
+	display: table-cell;
+}
+.forgotID{
+	font-family: Cambria;
+	font-weight: bold;
+}
+.idInstruct{
+	font-family: Cambria;
+}
+.output{
+	font-weight: bold;
+}
+.speaker_id_input{
+	width: 75vw;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.forgot_speaker_id{
+	position: fixed;
+	top: 45vh;
+	left: 15vw;
+	width: 75vw;
+	display: flex;
+	flex-direction: column !important;
+	justify-content: space-between;
+	border: 1px solid black;
+	visibility: hidden;
+	background-color: white;
+	box-shadow: 5px 5px 10px 15px gray;
+	opacity: 1;
+	padding: 30px;
+	border-radius: 5px;
+}

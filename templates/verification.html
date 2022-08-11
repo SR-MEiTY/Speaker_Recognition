@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Page Title-->
+	<title>Speaker Recognition System</title>
+	<!--Links-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/css/index.css">
+	<link rel="stylesheet" type="text/css" href="static/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="static/css/speech2text.css">
+	
+	<script type="text/javascript" src="static/js/stickyNav.js"></script>
+	<script type="text/javascript" src="static/js/getAudioDevices.js"></script>
+<!-- 	<script type="text/javascript" src="static/js/sendText.js"></script>
+ -->
+	<style type="text/css">
+		.stickyNav {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<!--Page Header-->
+	<header class="header">
+		<p class="title">Development and Deployment of Scalable Speaker Recognition Technology in Different Applications</p>
+	</header>
+
+	<!--Page Navigation Links-->
+	<nav class="navbar" id="navbar" name="navbar">
+		<a href="/">Home</a>
+  		<!-- <a href="registration">User Registration</a>
+  		<a href="training">Training</a>
+  		<a href="testing">Testing</a>
+  		<a href="contactus">Contact us</a> -->
+  	</nav>
+	
+	<!--Section for Data-->
+	<section class="row">
+		<!--Page Left Column-->
+		<aside class="leftcol">
+			<h3></h3>
+		</aside>
+
+		<!--Page Main Cntent-->
+		<main class="main">
+			<h2 class="mainTitle">Speaker Recognition System - Testing Module</h2>
+			<section class="audioStream">
+				<form class="audioForm" name="audioForm" id="audioForm">
+					<label for="speakerID">Enter the Speaker ID: </label>
+					<input type="text" name="speakerID" class="speakerID" id="speakerID" required>
+					<br>
+					<details>
+						<summary class="forgotID">Forgot your Speaker ID. Click Here!</summary>
+						<p class="idInstruct">
+							A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name,
+							first letter of your Gender and age. <br>
+							<b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
+						</p>
+					</details>
+					<section class="convertedText">
+						<h4 style="text-align: center;">Read the following Text</h4>
+						Indians are the citizens and nationals of the Republic of India. According to the 2011 Indian national census, the population of India stood at over 1.2 billion people, making it the world's second-most populous country that contains 17.50 percent of the global population. In India, the term "Indian" refers to nationality, rather than a particular ethnicity or language.
+					</section>
+
+					<input type="button" class="recordButton" name="recordButton" id="recordButton" value="START">
+					<input type="button" name="stopRecording" class="stopRecording" id="stopRecording" value="STOP">
+					<p class="timer" id="timer" name="timer">Not Recording.</p>
+					<p class="output" id="output" name="output">Result: </p>
+				</form>
+			</section>
+			<section class="convertedText">
+				
+			</section>
+		</main>
+
+		<!--Page Right Column-->
+		<aside class="rightcol">
+			<h3></h3>
+		</aside>
+	</section>
+
+	<!--Page Footer-->
+	<!-- <footer class="footer">
+		<aside class="footcol">
+			<h3>About Us</h3>
+			<p>IIIT, Dharwad</p>
+			<a href="contactus">Contact us</a>
+		</aside>
+		<aside class="footcol">
+			<h4>Related Links</h4>
+			<a href="https://iiitdwd.ac.in/" target="_blank">IIIT Dharwad</a> <br>
+			<a href="https://www.aicte-india.org/" target="_blank">AICTE</a> <br>
+			<a href="https://www.ugc.ac.in/" target="_blank">UGC</a> 
+		</aside>
+		<aside class="footcol">
+			<h4>Follow IIIT Dharwad</h4>
+			<a href="https://www.facebook.com/" target="_blank">Facebook</a> <br>
+			<a href="https://twitter.com/" target="_blank">Twitter</a>
+			<br>
+			<a href="https://www.instagram.com/" target="_blank">Instagram</a> 
+		</aside>
+		<section align="Center">
+			<i><b>All rights are reserved to IIIT Dharwad</b></i>
+		</section>
+	</footer> -->
+</body>
+<script type="text/javascript">
+	recordButton.addEventListener('click', (ev) => {
+		if(speakerID.value == '')
+			alert('Please enter the speakerID');
+		else{
+			vstart();
+			timer();	
+		}
+	});
+
+	stopRecording.addEventListener('click', (ev) => {
+		vstop();
+	})
+</script>
+</html>

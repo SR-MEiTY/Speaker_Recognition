@@ -1,0 +1,21 @@
+.footer {
+  	width: 100%;
+  	position: relative;
+  	height: auto;
+  	font-family: Times New Roman, serif;
+  	font-size: 1.05em;
+}
+
+.footcol{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+	box-sizing: border-box;
+  	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+	padding: 0px 20px 20px 20px;
+	background-color: deepskyblue;
+	min-height: 200px;
+	height: 180px;
+  	
+}

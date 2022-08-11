@@ -1,0 +1,112 @@
+body
+{
+}
+.userDetails
+{
+	text-align: left;
+	padding-left: 50px;
+	padding-right: 50px;
+    width: 90%;  
+    overflow: hidden;  
+    margin-left: 5%; 
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-content: center;
+    /*margin: 20 0 0 450px; */ 
+    background-color: deepskyblue;  
+    border-radius: 15px;
+    font-family: Cambria;
+}
+
+.head5
+{
+	text-align: center;
+}
+
+.userInfo 
+{
+	display: table;
+	width: 100%;
+}
+
+.trow 
+{
+	display: table-row;
+}
+label{  
+    color: black;  
+    font-size: 17px;
+    font-family: Cambria;
+    display: table-cell;
+    width: 35%;
+}
+
+#fname, #lname
+{
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border: none;  
+    border-radius: 3px;  
+    padding-left: px;
+    font-family: Cambria;
+    display: table-cell;
+}
+
+#gender{  
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    margin-bottom: 20px;
+    border: none;  
+    border-radius: 3px;  
+    padding-left: px;
+    font-family: Cambria;
+    display: table-cell;
+}
+
+#age{  
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    border: none;  
+    border-radius: 3px;
+    margin-bottom: 20px; 
+    padding-left: px;
+    font-family: Cambria;
+    display: table-cell;
+}
+
+input {
+	display: table-cell;
+}
+
+#speakerid
+{
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border: none;  
+    border-radius: 3px;  
+    padding-left: px;
+    font-family: Cambria;
+    display: table-cell;
+}
+.submitDiv
+{
+    display: ;
+	text-align: center;
+    margin-bottom: 10px;
+}
+.subButton
+{
+	text-align: center;
+	min-height: 30px;
+	font-size: 1.01em;
+	font-weight: bold;
+	font-family: Cambria, serif;
+    width: 20%;
+}

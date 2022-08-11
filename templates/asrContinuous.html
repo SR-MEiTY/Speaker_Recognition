@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Page Title-->
+	<title>IIIT Dharwad, Automatic Speech Recognition</title>
+	<!--Links-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/footer.css">
+	<link rel="stylesheet" type="text/css" href="./css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="./css/speech2text.css">
+	
+	<script type="text/javascript" src="./js/stickyNav.js"></script>
+	<script type="text/javascript" src="./js/getAudioDevices.js"></script>
+	<script type="text/javascript" src="./js/sendText.js"></script>
+
+	<style type="text/css">
+		.stickyNav {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<!--Page Header-->
+	<header class="header">
+		<p class="title">Automatic Speech Recognition, IIIT, Dharwad</p>
+	</header>
+
+	<!--Page Navigation Links-->
+	<nav class="navbar" id="navbar" name="navbar">
+		<a href="/">Home</a>
+  		<a href="aboutus">About Us</a>
+  		<a href="asr">Speech to Text (Auto)</a>
+  		<a href="asrCon">Speech to Text (Continuous)</a>
+  		<a href="contactus">Contact us</a>
+	</nav>
+	
+	<!--Section for Data-->
+	<section class="row">
+		<!--Page Left Column-->
+		<aside class="leftcol">
+			<h3></h3>
+		</aside>
+
+		<!--Page Main Cntent-->
+		<main class="main">
+			<h2 class="mainTitle">Automatic Speech Recognition (ASR) - Speech to Text Conversion (Continuous)</h2>
+			<section class="audioStream">
+				<form class="audioForm" name="audioForm" id="audioForm">
+					<input type="button" value="Enable Microphone" class="getAudioDevices" name="getAudioDevices" id="getAudioDevices" onclick="getDevices()">
+					<br><br>
+					<input type="button" class="recordButton" name="recordButton" id="recordButton" value="START">
+					<input type="button" name="stopRecording" class="stopRecording" id="stopRecording" value="STOP">
+					<!--<button class="stopRecording" name="stopRecording" id="stopRecording">Stop Recording</button> <br><br>-->
+					<audio controls class="audioSRC1" name="audioSRC1" id="audioSRC1" hidden></audio>
+				</form>
+
+				<form class="RASAText">
+					<label for="rText">Input Message: </label> <br>
+					<input type="text" name="rTest" class="rText" id="rText">
+					<input type="button" name="rButton" class="rButton" id="rButton" value='send Input' onclick="sendInput()">
+				</form>
+			</section>
+			<section class="convertedText">
+				
+			</section>
+		</main>
+
+		<!--Page Right Column-->
+		<aside class="rightcol">
+			<h3></h3>
+		</aside>
+	</section>
+
+	<!--Page Footer-->
+	<footer class="footer">
+		<aside class="footcol">
+			<h3>About Us</h3>
+			<p>IIIT, Dharwad</p>
+		</aside>
+		<aside class="footcol">
+			<h4>Related Links</h4>
+			<a href="https://iiitdwd.ac.in/" target="_blank">IIIT Dharwad</a> <br>
+			<a href="https://www.aicte-india.org/" target="_blank">AICTE</a> <br>
+			<a href="https://www.ugc.ac.in/" target="_blank">UGC</a> 
+		</aside>
+		<aside class="footcol">
+			<h4>Follow IIIT Dharwad</h4>
+			<a href="https://www.facebook.com/" target="_blank">Facebook</a> <br>
+			<a href="https://twitter.com/" target="_blank">Twitter</a>
+			<br>
+			<a href="https://www.instagram.com/" target="_blank">Instagram</a> 
+		</aside>
+		<section align="Center">
+			<i><b>All rights are reserved to IIIT Dharwad</b></i>
+		</section>
+	</footer>
+</body>
+<script type="text/javascript">
+	recordButton.addEventListener('click', (ev) => {
+		start();
+	});
+
+	stopRecording.addEventListener('click', (ev) => {
+		stop();
+	})
+</script>
+</html>

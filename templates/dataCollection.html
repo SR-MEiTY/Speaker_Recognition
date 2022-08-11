@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Page Title-->
+	<title>IIIT Dharwad, Data Collection</title>
+	<!--Links-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--Links to the external CSS Files-->
+	<link rel="stylesheet" type="text/css" href="static/css/index.css">
+	<link rel="stylesheet" type="text/css" href="static/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+	<link rel="stylesheet" type="text/css" href="static/css/dataCollection.css">	
+	<!--
+		This file is fontawesome css file which is downloaded for offline
+		use. This allows the webpages to load the icons without the
+		internet connection.
+	-->
+	<link rel="stylesheet" type="text/css" href="./icons/css/all.css">
+	
+	<!--Link to the jquery-->
+	<!-- This file needs internet connectivity 
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	-->
+	<!--This is an offline jQuery file i.e. No need of internet connectivity-->
+	<script type="text/javascript" src="static/js/jquery.js"></script>
+	
+	<!--Links to the external javascript files-->
+	<!--<script type="text/javascript" src="./js/CameraFun.js"></script>-->
+	<script type="text/javascript" src="static/js/stickyNav.js"></script>
+	<!-- <script type="text/javascript" src="./js/audio.js"></script>
+	<script src="./js/popupS.min.js"></script> -->
+	<script type="text/javascript" src="static/js/fontSize.js"></script>
+	<script type="text/javascript" src="static/js/dateTime.js"></script>
+	<script type="text/javascript" src="static/js/windowSelector.js"></script>
+	<!---->
+	<script type="text/javascript" src="static/js/wavesurfer-5.2.0.js"></script>
+	<script type="text/javascript" src="static/js/wavesurfer-timeline.js"></script>
+	<script type="text/javascript" src="static/js/wavesurfer-microphone.js"></script>
+	
+	<!-- <script src="https://unpkg.com/wavesurfer.js"></script>
+	<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js"></script> -->
+	<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+ 	<script type="text/javascript" src="static/js/waveform.js"></script>
+	<!-- <script type="text/javascript" src="./js/my-worklet-processor.js"></script>
+	<script type="text/javascript" src="./js/processor.js"></script> -->
+	
+	<!--Internal CSS-->
+	<style type="text/css">
+		.aboutus {
+			margin: 50px 50px 20px 50px;
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		.stickyNav
+		{
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+</head>
+
+<!--Start of the body element-->
+<body>
+	<!--Page Header-->
+	<header class="header">
+		<p class="title">Data Collection Facility, IIIT, Dharwad</p>
+	</header>
+
+	<!--Page Navigation Links-->
+	<nav class="navbar" id="navbar" name="navbar">
+		<a href="/">Home</a>
+  		<a href="registration">User Registration</a>
+  		<a href="training">Training</a>
+  		<a href="testing">Testing</a>
+  		<a href="contactus">Contact us</a>
+  	</nav>
+	
+	<!--Section for Main Data-->
+	<section class="row">
+		<!--Page Left Column: To keep the left side blank-->
+		<aside class="leftcol">
+			<h3></h3>
+		</aside>
+
+		<!--Page Main Cntent-->
+		<main class="main">
+			<hr>
+			<section class="winSection">
+				<label for="recWindow" class="recLabel">Select the Recording Window</label>
+				<select class="recWindow" id="recWindow" onchange="windowSelect()">
+					<option disabled selected>--- Select the Recording Window ---</option>
+					<option value="demo">Demo Recording Window</option>
+					<option value="main">Main Recording Window</option>
+					<option value="continuous">Continuous Recording Window</option>
+					<option value="reRecordWin">Re-Recording Window</option>
+				</select>
+			</section>
+			<hr>
+			
+			<!--Input Form-->
+			<section class="recordSection">
+				<!--This division is for Demo Recording Window-->
+				<div class="demoDiv" id="demoDiv" name="demoDiv" hidden>
+					<form name="setDemoUser" method="post">
+						<label for="dUser">Enter Speaker ID</label>
+						<input type="text" class="dUser" id="dUser" name="dUser" required>
+						<input type="submit" value="submit" class="demoSubmit" id="demoSubmit" name="demoSubmit">
+					</form>
+				</div>
+
+				<!--This division is for Main Recording Window-->
+				<div class="inputCount" id="inputCount" name="inputCount" hidden>
+					<form name="setCount" method="post" action="testing">
+						<label for="uname">Enter Speaker ID</label>
+						<input type="text" class="uname" id="uname" name="uname" required>
+						<label for="eleCount">Enter Session </label>
+						<input type="number" class="eleCount" id="eleCount" min="1" max="7" name="eleCount" required>
+						<label for="audioCount">No of Recordings </label>
+						<input type="number" class="audioCount" id="audioCount" min="1" max="100" name="audioCount" required>
+						<input type="submit" value="submit" class="submit" id="submit" name="submit">
+					</form>
+				</div>
+
+				<!--This division is for Continuous Recording Window-->
+				<div class="conDiv" id="conDiv" name="conDiv" hidden>
+					<form name="setConUser" method="post">
+						<label for="cUser">Enter Speaker ID</label>
+						<input type="text" class="cUser" id="cUser" name="cUser" required>
+						<input type="submit" value="submit" class="conSubmit" id="conSubmit" name="conSubmit">
+					</form>
+				</div>
+
+				<!--This division is for Re-Recording Window-->				
+				<div class="libAudio" id="libAudio" name="libAudio" hidden>
+					<form name="reRecord" method="post" action="getSentence">
+						<div class="prevText1" id="prevText">
+							<label for="getUser">Enter Speaker ID</label>
+							<input type="text" name="getUser" id="getUser" class='getUser' value="">
+							<label for="sesNo">Enter Session No</label>
+							<input type="text" name="sesNo" id="sesNo" class='sesNo' value="">
+							<label for="stNumber" id="stLabel" class="stLabel">Enter the Sentence Number:</label>
+							<input type="number" name='stNumber' id="stNumber" class="stNumber" min="1" max="9999" required>
+							<input type="submit" class="getSentenceBtn" id="getSentenceBtn" name="getSentenceBtn" value="submit">
+						</div>
+					</form>
+				</div>
+
+				<hr>
+				<div class="readText">
+					<nav class="fontNav">
+						<a onclick='largerFont()' class="fontLink" id="larger">Larger</a>
+						<a onclick="largeFont()" class="fontLink" id="large">Large</a>
+						<a onclick="normalFont()" class="fontLink" id="normal">Normal</a>
+					</nav>
+					
+					<article class="sentence" id="sentence" name="sentence">
+						<p class="stn" id="stn" name="stn">#</p>
+						<p class="sentence1" id="sentence1" name="sentence1">
+						ಇಲ್ಲಿ ಕನ್ನಡ ವಾಕ್ಯಗಳು ಕಾಣಿಸುತ್ತವೆ. </p>
+					</article>
+
+					<audio src="" controls class="preAudio" id="preAudio">
+						Audio is not supported in this browser.
+					</audio>
+				</div>
+				<div class="recIcon">
+					<!-- <img src="./icons/recording.png" name="recordingImg" id="recordingImg" class="recordingImg" alt="Recording Audio" hidden>
+
+					<img name="stoppedRec" id="stoppedRec" class="stoppedRec" src="./icons/stoppedRec.png" alt="Not Recording" hidden> -->
+					<p name="recordingImg" class="recordingImg" id="recordingImg" hidden>ರೆಕಾರ್ಡಿಂಗ್ ಆಗುತ್ತಿದೆ.</p>
+					<p name="stoppedRec" class="stoppedRec" id="stoppedRec" hidden>ರೆಕಾರ್ಡಿಂಗ್ ಆಗುತ್ತಿಲ್ಲ.</p>
+				</div>
+				<p id="waveform-text" class="waveform-text">Live Waveform</p>
+				<div class="liveWaveform" id="liveWaveform" name="liveWaveform"></div>
+				<div class="waveform" id="waveform" name="waveform">
+				</div>
+				<div class="showTimeline" id="showTimeline" name="showTimeline">
+					<showTimeline style="display: block; position: relative; user-select: none; height: 20px; width: 100%; overflow: hidden;"><canvas width="1158" height="26" style="position: absolute; z-index: 4; width: 927px; height: 20px; left: 0px;"></canvas></showTimeline>
+					<canvas width="1158" height="26" style="position: absolute; z-index: 4; width: 927px; height: 20px; left: 0px;"></canvas>
+				</div>
+
+				<!--Element to show the camera stream-->
+				<div class="accessCamera">
+					<!--Demo Audio Recording Window-->
+					<div class="demoCamera" id="demoCamera" hidden>
+						<h4 class="head4">Demo Recording Window</h4>
+						<audio class="demoStream" id="demoStream" name="demoStream" autoplay="true" muted controls>
+						</audio>
+						<br>
+						<button class="dstartVid" id="dstartVid" hidden>
+							<i id = 'start' class="fas fa-microphone">
+							</i>
+						</button>
+						<button class="dstopVid" id="dstopVid" hidden>
+							<i id = 'stop' class="fas fa-stop">
+							</i>
+						</button>
+					</div>
+
+					<!--Main Audio Recording Window-->
+					<div class="accessCamera1" id="accessCamera1" hidden>
+						<form class="videoStreamF" name="videoStreamF" type='multipart/form-data'>
+							<h4 class="head4">Audio Recording Window</h4>
+						<audio class="videoStream" autoplay="true" id="videoStream" muted controls>
+						<!--Here camera video stream will be shown on the webpage-->
+						</audio><br>
+						<input type="number" name="un" class="un" id="un" hidden>
+						<input type="number" name="sec" class="sec" id="sec" hidden>
+						<button class="startVid" id="startVid" hidden>
+							<i id = 'start' class="fas fa-microphone">
+							</i>
+						</button>
+						<button class="stopVid" id="stopVid" hidden>
+							<i id = 'stop' class="fas fa-stop">
+							</i>
+						</button>
+						</form>
+					</div>
+
+					<!--Continous Audio Recording Window-->
+					<div class="conCamera" id="conCamera" hidden>
+						<h4 class="head4">Continuous Recording Window</h4>
+						<audio class="conStream" autoplay="true" id="conStream" muted controls></audio>
+						<br>
+						<button class="cstartVid" id="cstartVid" hidden>
+							<i id = 'start' class="fas fa-microphone">
+							</i>
+						</button>
+						<button class="cstopVid" id="cstopVid" hidden>
+							<i id = 'stop' class="fas fa-stop">
+							</i>
+						</button>
+					</div>
+
+					<!--Re-recording Window-->
+					<div class="re-record" id="re-record" hidden>
+						<h4 class="head4">Re-Recording Window</h4>
+						<audio class="reRecStream" id="reRecStream" name="reRecStream" autoplay="true" muted controls>
+						</audio>
+						<br>
+						<button class="restartVid" id="restartVid" hidden>
+							<i id = 'restart' class="fas fa-microphone">
+							</i>
+						</button>
+						<button class="restopVid" id="restopVid" hidden>
+							<i id = 'restop' class="fas fa-stop">
+							</i>
+						</button>
+					</div>
+
+				</div>
+				<div class="displayVideo" id="displayVideo">
+					<!--<video id="vidSave" class="vidSave" controls>	
+					</video>-->
+					<hr class="end" id="end">
+				</div>
+			</section>
+		</main>
+
+		<!--Page Right Column: To keep the left side blank-->
+		<aside class="rightcol">
+			<h3></h3>
+		</aside>
+		<!--Page Footer-->
+		<footer class="footer">
+			<aside class="footcol">
+				<h3>About Us</h3>
+				<p>IIIT, Dharwad</p>
+			</aside>
+			<aside class="footcol">
+				<h4>Related Links</h4>
+				<a href="http://www.walchandsangli.ac.in" target="_blank">IIIT Dharwad</a> <br>
+				<a href="https://www.aicte-india.org/" target="_blank">AICTE</a> <br>
+				<a href="https://www.ugc.ac.in/" target="_blank">UGC</a> 
+			</aside>
+			<aside class="footcol">
+				<h4>Follow IIIT Dharwad</h4>
+				<a href="https://www.facebook.com/" target="_blank">Facebook</a> <br>
+				<a href="https://twitter.com/" target="_blank">Twitter</a>
+				<br>
+				<a href="https://www.instagram.com/" target="_blank">Instagram</a> 
+			</aside>
+		</footer>
+	</section>
+
+	<section class="copyright" align="Center">
+		<i><b>All rights are reserved to IIIT Dharwad</b></i>
+	</section>
+
+	<script type="text/javascript">
+		'use strict'	
+		const recordCount = document.getElementById('eleCount').value;
+		var inc = 0;
+		let video = document.querySelector("#demoStream");
+		var aName;
+		let mediaRecorder;
+		let options;
+        let chunks = [];
+        var request;
+        let videoURL;
+        var serverData;
+        var dateTime;
+        var stNo = document.getElementById("stn");
+        var sn = document.getElementById('sentence1');
+		
+		var wavesurfer = WaveSurfer.create({
+			container: '#waveform',
+			waveColor: 'violet',
+			progressColor: 'purple',
+			backgroundColor: '#606060',
+			scrollParent: true,
+			interact: false,
+			cursorWidth: 0,
+			responsive: true,
+			plugins: [
+            WaveSurfer.timeline.create({
+                container: document.querySelector('#showTimeline'),
+                formatTimeCallback: formatTimeCallback,
+	            timeInterval: timeInterval,
+	            primaryLabelInterval: primaryLabelInterval,
+	            secondaryLabelInterval: secondaryLabelInterval,
+	            primaryColor: 'blue',
+	            secondaryColor: 'red',
+	            primaryFontColor: 'blue',
+	            secondaryFontColor: 'red'
+	            }),
+        	]
+		});
+
+		var livewavesurfer = WaveSurfer.create({
+		  container     : '#liveWaveform',
+		  waveColor     : 'blue',
+		  interact      : false,
+		  cursorWidth   : 1,
+		  normalize		: true,
+		  backgroundColor: '#C0C0C0',
+		  bufferSize	: 256,
+		  responsive: true,
+		  plugins: [
+		    WaveSurfer.microphone.create({
+		    })
+		  ]
+		});
+
+		livewavesurfer.microphone.on('deviceReady', function(stream) {
+		    console.log('Device ready!', stream);
+		});
+		livewavesurfer.microphone.on('deviceError', function(code) {
+		    console.warn('Device error: ' + code);
+		});
+
+		//Following code will autostart the webcam when webpage loads
+		navigator.mediaDevices.getUserMedia({
+	    	audio: true,
+	    	// sampleRate: '16000',
+		}).then (function(mediaStreamObj)
+		{
+			// options = {
+   //   			audioBitsPerSecond: 128,
+			// }
+        	//video.srcObject = mediaStreamObj;
+            mediaRecorder = new MediaRecorder(mediaStreamObj);
+        });
+        
+        /*---------- START OF DEMO AUDIO RECORDING ----------*/
+        //Demo Audio Recording
+        dstartVid.addEventListener('click', (ev)=>
+        {
+        	// livewavesurfer.microphone.start();
+
+    		if (mediaRecorder.state == 'inactive')
+    		{
+        		mediaRecorder.start();		
+        		dstartVid.disabled = true;	//off
+        		dstopVid.disabled = false;
+        		startVid.disabled = true;	//off
+        		stopVid.disabled = true;	//off
+        		cstartVid.disabled = true;	//off
+        		cstopVid.disabled = true;	//off
+        		
+	        	mediaRecorder.onstop = (ev)=>
+	        	{
+		            let blob = new Blob(chunks,
+		            	{
+		            		'type':'audio/mp3'
+		            		//'codecs':'h.264'
+		            	});
+
+					videoURL = window.URL.createObjectURL(blob);
+		            demoStream.src = videoURL;
+		            
+					wavesurfer.load(videoURL);
+					dateTime = getDateTime();
+					var u = dUser.value;
+		            console.log(dateTime);
+		            //send data to the node.js
+		            var audio = new FormData();
+		            aName = dateTime + '_' + dUser.value + '_demo.mp3';
+		            request = new XMLHttpRequest();
+		            //audio.append('file', videoURL);
+		            audio.append('content-type', 'multipart/form-data');
+		            audio.append('demoStream', blob, aName);
+		            audio.append('userName', u);		   
+		            request.open('post', '/uploadDemo');
+		            request.send(audio);
+		            chunks = [];
+		            console.log(videoURL);
+		            console.log('Demo audio file sent to the server for processing.');
+		            aName = uname.value;
+        		}
+
+				// setInterval(event => {
+				// 	mediaRecorder.requestData = function (ev) {
+				// 		mediaRecorder.ondataavailable = function(ev){
+		  //       			console.log("data 1");
+				//             chunks.push(ev.data);
+				//             let b = new Blob(chunks,
+			 //            	{
+			 //            		'type':'audio/mp3'
+			 //            	});
+
+				// 			videoURL = window.URL.createObjectURL(b);
+				//             demoStream.src = videoURL;
+				// 			wavesurfer.load(videoURL);
+				// 			wavesurfer.play();
+				//             wavesurfer.on('ready', function () {
+	   //      					wavesurfer.setMute();
+				// 				wavesurfer.play();
+				// 			});
+			 //        	}
+				// 	}
+				// }, 500);
+
+		        mediaRecorder.ondataavailable = function(ev)
+		        {
+		            chunks.push(ev.data);
+		            console.log(chunks);
+		        }
+    		}
+    		else
+        	{
+        		dstartVid.disabled = false;
+        		dstopVid.disabled = true;
+        		startVid.disabled = true;
+        		stopVid.disabled = true;
+        		cstartVid.disabled = true;
+        		cstopVid.disabled = true;
+        	}
+            console.log(mediaRecorder.state);
+    	});
+        /*This is a click event listener for the button with id stopVid
+		  Here media recorder will stop recording the stream coming from
+		  the webcam. Buttons will be enabled and disabled accordingly.
+		 */
+        dstopVid.addEventListener('click', (ev)=>
+        {
+        	wavesurfer.on('ready', function () {
+        		wavesurfer.setMute();
+				wavesurfer.play();
+			});
+			//livewavesurfer.microphone.stop();
+           if (mediaRecorder.state != 'inactive') {
+        		mediaRecorder.stop();
+        		dstopVid.disabled = true;
+        		dstartVid.disabled = false;
+        		startVid.disabled = false;
+        		stopVid.disabled = false;
+        		cstartVid.disabled = false;
+        		cstopVid.disabled = false;
+        	}
+        	else{
+        		dstopVid.disabled = false;
+        		dstartVid.disabled = true;
+        		startVid.disabled = true;
+        		stopVid.disabled = true;
+        		cstartVid.disabled = true;
+        		cstopVid.disabled = true;
+        	}
+            console.log(mediaRecorder.state);
+        });
+        /*---------- END OF DEMO AUDIO RECORDING ----------*/
+
+        /*---------- START OF MAIN RECORDING WINDOW ----------*/
+        startVid.addEventListener('click', (ev)=>
+        {
+        	//livewavesurfer.microphone.start();
+    		if (mediaRecorder.state == 'inactive')
+    		{
+        		mediaRecorder.start();
+        		startVid.disabled = true;
+        		stopVid.disabled = false;
+        		dstartVid.disabled = true;
+        		dstopVid.disabled = true;
+        		cstartVid.disabled = true;
+        		cstopVid.disabled = true;
+
+	        	mediaRecorder.onstop = (ev)=>
+	        	{
+		            let blob = new Blob(chunks,
+		            	{
+		            		'type':'audio/mp3'
+		            		//'codecs':'h.264'
+		            	});
+		            chunks = [];
+		            var temp = inc;
+		            dateTime = getDateTime();
+		            //Create a new division
+		            const lName = "Audio " + (temp);
+
+		            var newDiv = document.createElement('div');
+
+					newDiv.setAttribute("class", lName);
+					newDiv.setAttribute("id", lName);
+					newDiv.style.width = '100%';
+					newDiv.style.height = 'auto';
+					newDiv.style.textAlign = 'center';
+					//newDiv.setAttribute("width", "100%");
+					//newDiv.setAttribute("height", "auto");
+					//newDiv.setAttribute("style", "text-align: center; margin:auto;");
+					var parent = document.getElementById('displayVideo');
+					var child = document.getElementById('end');
+					parent.insertBefore(newDiv, child);
+
+		            //Create New Video Element
+		            var newLabel = document.createElement('label');
+					newLabel.setAttribute("class", lName);
+					newLabel.setAttribute("id", lName);
+					newLabel.style.marginLeft = "45%";
+					newLabel.style.marginRight = "45%";
+					newLabel.style.width = "10%";
+					newLabel.style.textAlign = "center";
+					// newLabel.setAttribute("style", "display: table-row;");
+					//newLabel.setAttribute("style", "margin-left: 40%;");
+					//newLabel.setAttribute("style", "margin-right: 40%;");
+					//newLabel.setAttribute("style", "width: 10%;");
+					const labelName = document.createTextNode(lName);
+					newLabel.appendChild(labelName);
+					parent = document.getElementById('displayVideo');
+					child = document.getElementById('end');
+					parent.insertBefore(newLabel, child);
+
+					//Create an video element
+					const vName = "audio" + (temp);
+					var newVideo = document.createElement('audio');
+					newVideo.setAttribute("class", vName);
+					newVideo.setAttribute("id", vName);
+					newVideo.setAttribute("width", "50%");
+					newVideo.setAttribute("background-color","#666");
+					newVideo.setAttribute("autoplay","false");
+					newVideo.setAttribute("controls", "controls");
+					newVideo.muted = true;
+					//newVideo.setAttribute("style", "display: table-row;");
+					newVideo.style.marginLeft = "35%";
+					newVideo.style.marginRight = "35%";
+					newVideo.style.width = "30%";
+					document.body.appendChild(newVideo);
+					parent.insertBefore(newVideo, end);
+			        //Closed
+		            videoURL = window.URL.createObjectURL(blob);
+		            wavesurfer.load(videoURL);
+		            
+		            // console.log(videoURL);
+		             newVideo.src = videoURL;
+		             newVideo.preload = 'none';
+
+		            //Upload to the directory
+		            var audio = new FormData();
+		            var userName = un.value;
+		            var secNo = sec.value;
+		            // console.log('Sending userName'+userName);
+		            // aName = dateTime + '_' + uname.value + '_Main.mp3';
+		            aName = dateTime + '_'+ userName + '_' + secNo +'_KA.';
+		            request = new XMLHttpRequest();
+		            //audio.append('file', videoURL);
+		            audio.append('content-type', 'multipart/form-data');
+		            audio.append('newVideo', blob, aName);
+		            audio.append('userName', userName);
+		            audio.append('section', secNo);
+		            request.open('post', '/uploadMain');
+		            request.send(audio);
+		            chunks = [];
+		            blob = [];
+		            console.log('Main audio file sent to the server for processing.');
+		            aName = '';
+		            temp++;
+		            // const a = document.createElement('a');
+		            // a.display = "none";
+		            // a.href = videoURL;
+		            // a.download = vName+".mp3";
+		            // a.click();
+        		}
+		        mediaRecorder.ondataavailable = function(ev)
+		        {
+		            chunks.push(ev.data);
+		            console.log(chunks);
+		        }
+    		}
+    		else
+        	{
+        		startVid.disabled = false;
+        		stopVid.disabled = true;
+        		dstartVid.disabled = true;
+        		dstopVid.disabled = true;
+        		cstartVid.disabled = true;
+        		cstopVid.disabled = true;
+
+        	}
+            console.log(mediaRecorder.state);
+            inc++;
+    	});
+
+        /*This is a click event listener for the button with id stopVid
+		  Here media recorder will stop recording the stream coming from
+		  the webcam. Buttons will be enabled and disabled accordingly.
+		 */
+        stopVid.addEventListener('click', (ev)=>
+        {
+   //      	wavesurfer.on('ready', function () {
+   //      		wavesurfer.setMute();
+   //  			wavesurfer.play();
+			// });
+			//livewavesurfer.microphone.stop();
+           if (mediaRecorder.state != 'inactive') {
+        		mediaRecorder.stop();
+        		stopVid.disabled = true;
+        		startVid.disabled = false;
+        		dstartVid.disabled = false;
+        		dstopVid.disabled = false;
+        		cstartVid.disabled = false;
+        		cstopVid.disabled = false;
+        	}
+        	else{
+        		stopVid.disabled = false;
+        		startVid.disabled = true;
+        		dstartVid.disabled = true;
+        		dstopVid.disabled = true;
+        		cstartVid.disabled = true;
+        		cstopVid.disabled = true;
+        	}
+            console.log(mediaRecorder.state);
+        });
+        /*---------- END OF MAIN RECORDING WINDOW ----------*/
+
+        /*---------- START OF CONTINUOUS RECORDING WINDOW ----------*/
+        //Continous Audio Recording
+        cstartVid.addEventListener('click', (ev)=>
+        {
+        	// livewavesurfer.microphone.start();
+        	aName = document.getElementById('cUser').value;
+    		if (mediaRecorder.state == 'inactive')
+    		{
+        		mediaRecorder.start();
+        		cstartVid.disabled = true;
+        		cstopVid.disabled = false;
+        		startVid.disabled = true;
+        		stopVid.disabled = true;
+        		dstartVid.disabled = true;
+        		dstopVid.disabled = true;
+
+	        	mediaRecorder.onstop = (ev)=>
+	        	{
+		            let blob = new Blob(chunks,
+		            	{
+		            		'type':'audio/mp3'
+		            		//'codecs':'h.264'
+		            	});
+		            videoURL = window.URL.createObjectURL(blob);
+		            wavesurfer.load(videoURL);
+		            conStream.src = videoURL;
+		            dateTime = getDateTime();
+		            var u = cUser.value;
+		            //send data to the node.js
+		            var audio = new FormData();
+		            aName = dateTime + '_' + aName + '_continuos';
+		            //aName = aName + '_continuos';
+		            var passName = aName +'.mp3';
+		            request = new XMLHttpRequest();
+		            //audio.append('file', videoURL);
+		            audio.append('content-type', 'multipart/form-data');
+		            audio.append('conStream', blob, passName);
+		            audio.append('userName', u);
+		            request.open('post', '/uploadCon');
+		            request.send(audio);
+		            chunks = [];
+		            console.log(videoURL);
+		            console.log('Continuous audio file sent to the server for processing.');
+
+		            const a = document.createElement('a');
+		            a.display = "none";
+		            a.href = videoURL;
+		            console.log(aName);
+		            a.download = aName+".mp3";
+		            a.click();
+		            aName = document.getElementById('uname').value;
+        		}
+		        mediaRecorder.ondataavailable = function(ev)
+		        {
+		            chunks.push(ev.data);
+		            console.log(chunks);
+		        }
+    		}
+    		else
+        	{
+        		cstartVid.disabled = false;
+        		cstopVid.disabled = true;
+        		startVid.disabled = true;
+        		stopVid.disabled = true;
+        		dstartVid.disabled = true;
+        		dstopVid.disabled = true;
+        	}
+            console.log(mediaRecorder.state);
+    	});
+
+        /*This is a click event listener for the button with id stopVid
+		  Here media recorder will stop recording the stream coming from
+		  the webcam. Buttons will be enabled and disabled accordingly.
+		 */
+        cstopVid.addEventListener('click', (ev)=>
+        {
+   //      	wavesurfer.on('ready', function () {
+   //      		wavesurfer.setMute();
+   //  			wavesurfer.play();
+			// });
+			// livewavesurfer.microphone.stop();
+           if (mediaRecorder.state != 'inactive') {
+        		mediaRecorder.stop();
+        		cstopVid.disabled = true;
+        		cstartVid.disabled = false;
+        		startVid.disabled = false;
+        		stopVid.disabled = false;
+        		dstartVid.disabled = false;
+        		dstopVid.disabled = false;
+        	}
+        	else{
+        		cstopVid.disabled = false;
+        		cstartVid.disabled = true;
+        		startVid.disabled = true;
+        		stopVid.disabled = true;
+        		dstartVid.disabled = true;
+        		dstopVid.disabled = true;
+        	}
+            console.log(mediaRecorder.state);
+        });
+        /*---------- END OF MAIN RECORDING WINDOW ----------*/
+
+        /*---------- RECEIVE DATA FROM SERVER ----------*/
+		submit.addEventListener('click', async (ev) => 
+    	{	
+	    	ev.preventDefault();
+	    	var uName = document.getElementById('uname').value;
+	    	var secCount = document.getElementById('eleCount').value;
+	    	var senCount = document.getElementById('audioCount').value;
+	    	let canSpeak = '';
+	    	let currentPtr=0;
+	    	let stPointer = 0, ptr = 0, nptr = 0;
+	    	
+	    	if(uName == '' || secCount == '' || senCount == '')
+	    	{
+	    		alert('Enter all the details.');
+	    	}
+	    	else if(senCount < 1 || senCount > 1031 || secCount < 1 || secCount > 7)
+	    	{
+	        	if(senCount < 1 || senCount > 1031)
+	        		alert('Invalid Sentence Number.')
+	        	if (secCount < 1 || secCount > 7)
+	        		alert('Invalid Session ID.')
+	    	}
+	    	else
+	    	{
+	    		$.ajax({
+	            type: 'POST',
+	            url: "/testing",
+	            async: true,
+	            data: 
+	                JSON.stringify({
+	                    user: uName,
+	                    ele: secCount,
+	                    rec: senCount
+	            }),
+	            dataType: 'json',
+	            contentType: 'application/json; charset=utf-8',
+	            success: function ()
+	            {
+	    			const count = parseInt(document.getElementById('audioCount').value);
+	    			document.getElementById('un').value = uname.value;
+	    			document.getElementById('sec').value = eleCount.value;
+	    			console.log(count);
+	    			var i=1, j=0, srid=0, stid=0, srdata=0, main = 0, addata=0;
+
+	    			$.get('/langStatus', async function(data, status){
+	    				canSpeak = data;
+	    				console.log('Can Speaker speaks Kannada: '+canSpeak);
+	    			})
+
+	    			$.get('/getPointer', async function(data, result){
+	    				console.log('Data Received from Node: '+data)
+	    				currentPtr = data;
+	    				currentPtr = parseInt(currentPtr);
+	    				console.log('Value of pointer after conversion (currentPtr): '+currentPtr);
+	    			})
+
+	    			$.get("/testing", async function(data, status)
+	    			{
+				    	serverData = data;
+				    	stPointer = currentPtr;
+				    	//stPointer = parseInt(serverData[0]);
+				    	//console.log('Current pointer: '+serverData[0])
+				    	console.log('stPointer value: Current pointer: '+stPointer)
+				    	
+				    	if(stPointer <= 0 || stPointer >= 1032)
+				    	{
+				    		ptr = 1;
+				    		console.log('Current pointer: '+ptr)
+				    	}
+				    	else
+				    	{
+				    		ptr = stPointer;
+				    		console.log('New Current pointer: '+ptr)
+				    	}
+				    	
+				    	if(count=='')
+	    					console.log("yyy",count);
+	    				else
+	    				{
+	    					if(Object.keys(serverData).length === 0)
+	    					{
+	    						alert('User Name is invalid.');
+	    						uname.value = '';
+	                    		eleCount.value = '';
+	                    		audioCount.value = '';
+	    					}
+	    					else
+	    					{
+	    						console.log(serverData);
+	    						console.log('Can Speaker speaks Kannada: '+canSpeak);
+		        				let t1=1000, t2=6000, t3=7000, t4 = 12000, tn1, tn2, tn3;
+		        				tn1 = tn2 = tn3 = 12000;	//11000-1000=10000
+		        	// 			if(count==1)
+		        	// 			{
+		        	// 				console.log('Value of Count in 1: '+count);
+		        	// 				setTimeout(function()
+		        	// 				{
+			        // 					stNo.innerHTML = ptr;
+							    // 		sn.innerHTML = serverData[ptr];
+							    // 		preAudio.src = './data/'+ptr+'.wav';
+							    // 		if(canSpeak==='false')
+							    // 			preAudio.play();
+		        	// 				}, t1)
+
+		        	// 				setTimeout(function()
+		        	// 				{
+						    	// 		var audio = new Audio('./sounds/beep.wav');
+	        		// 					audio.play();
+		        	// 				}, t2)
+
+			        // 				setTimeout(function() {
+			        // 					document.getElementById("startVid").click();
+			        // 					document.getElementById('recordingImg').style.display = 'inline';
+	 									// document.getElementById('stoppedRec').style.display = 'none';
+			        // 					livewavesurfer.microphone.start();
+			        // 				}, t3)
+
+			        // 				setTimeout(function() {
+			        // 					document.getElementById("stopVid").click();
+			        // 					document.getElementById('recordingImg').style.display = 'none';
+	 									// document.getElementById('stoppedRec').style.display = 'inline';
+	 									// livewavesurfer.microphone.stop();
+			        // 				}, t4)
+			        // 				nptr = ptr;
+			        // 				ptr = currentPtr = 0;
+			        // 				console.log('New Counter after 1 iteration:'+nptr);
+			        // 				$.ajax({
+							    //         type: 'POST',
+							    //         url: "/savePointer",
+							    //         async: true,
+							    //         data: 
+							    //             JSON.stringify({
+							    //                 pointer: ++nptr,
+							    //         }),
+							    //         dataType: 'json',
+							    //         contentType: 'application/json; charset=utf-8',
+							    //         success: function ()
+							    //         {
+							    //         	alert('Pointer Updated Successfully.')
+							    //         }
+		        	// 				});
+		        	// 				nptr = 0;
+			        // 			}
+		        	// 			else
+		        	// 			{
+		        					function sleep(ms) {
+								      return new Promise(resolve => setTimeout(resolve, ms));
+								   	}
+								   	let loop = 1;
+								   	let counter = (count + ptr);
+								   	
+								   	console.log('counter value: '+counter);
+								   	//console.log(typeof counter);
+
+								   	async function displayText() {
+								      	console.log('This is main recording');
+								      	for (let i = ptr; i < counter; i++)
+								      	{
+								      		nptr = i;
+								      		if(i >= 1032)
+								      		{
+								      			break;
+								      		}
+								      		console.log('NPTR: '+nptr);
+								      		console.log('loop no: '+loop);      
+								         	//await sleep(1000);
+								         	setTimeout(function() {
+					        					stNo.innerHTML = i;
+									    		sn.innerHTML = serverData[i];
+									    		preAudio.src = './data/lambani/'+i+'.wav';
+									    		if(canSpeak==='false')
+							    					preAudio.play();
+				        					}, await sleep(1000)) //1 sec
+
+				        					setTimeout(function() {
+								    		var audio = new Audio(
+												'./sounds/beep.wav');
+			        							audio.play();
+				        					}, await sleep(6000))	//5sec
+
+					        				setTimeout(function() {
+					        					document.getElementById("startVid").click();
+					        					document.getElementById('recordingImg').style.display = 'inline';
+	 											document.getElementById('stoppedRec').style.display = 'none';
+	 											livewavesurfer.microphone.start();
+					        				}, await sleep(1000))	//6sec
+
+					        				setTimeout(function() {
+					        					document.getElementById("stopVid").click();
+					        					document.getElementById('recordingImg').style.display = 'none';
+	 											document.getElementById('stoppedRec').style.display = 'inline';
+	 											livewavesurfer.microphone.stop();
+					        				}, await sleep(6000))
+					        				loop++;	//11sec
+								      	}
+								      	canSpeak = '';
+								      	ptr = currentPtr = 0;
+								      	nptr++;
+								      	if(nptr >= 1032)
+								      		nptr = 0;
+								      	else
+								      		nptr = nptr;
+								   		console.log('Final pointer: '+nptr);
+								   		$.ajax({
+								            type: 'POST',
+								            url: "/savePointer",
+								            async: true,
+								            data: 
+								                JSON.stringify({
+								                    pointer: nptr,
+								            }),
+								            dataType: 'json',
+								            contentType: 'application/json; charset=utf-8',
+								            success: function ()
+								            {
+								            	alert('Pointer Updated Successfully.')
+								            }
+			        					});
+			        					nptr = 0;
+								   	}
+								   	displayText()
+								   	currentPtr = 0;
+	        					//}
+	        				}
+	    				}
+					});
+	        	}
+	    	});
+    	}	
+	});
+
+    getSentenceBtn.addEventListener('click', (ev) =>
+	{
+		ev.preventDefault();
+		var getUser = document.getElementById('getUser').value;
+    	var session = document.getElementById('sesNo').value;
+    	var stNum = document.getElementById('stNumber').value;
+
+    	if(getUser == '' || stNum == '' || session == '')
+    	{
+        		alert('Enter valid details.');
+        }
+        else if(stNum < 1 || stNum > 1031 || session < 1 || session > 8)
+        {
+        	if(stNum < 1 || stNum > 1031)
+        		alert('Invalid Sentence Number.')
+        	if (session < 1 || session > 7)
+        	{
+        		alert('Invalid Session ID.')
+        	}
+        }
+        else
+        {
+        	$.ajax({
+			    type: 'POST',
+			    url: "/getSentence",
+			    async: true,
+			    data: 
+			        JSON.stringify({
+			            user: getUser,
+			            session: sesNo,
+			            sentence: stNum,
+			    }),
+			    dataType: 'json',
+			    contentType: 'application/json; charset=utf-8',
+			    success: function () {
+			    	var i = stNumber;
+			    	document.getElementById('un').value = getUser;
+	        		document.getElementById('sec').value = session;
+					$.get("/getSentence", function(data, status)
+					{
+				      	serverData = data;
+
+						console.log(serverData);
+			  			stNo.innerHTML = stNumber.value;
+			    		sn.innerHTML = serverData[stNumber.value];
+			    		preAudio.src = './data/lambani/'+stNumber.value+'.wav';
+
+			    		setTimeout(function(){
+						var audio = new Audio('./sounds/beep.wav');
+		        			audio.play();
+			        	}, 5000);
+
+			    		setTimeout(function(){
+			    			document.getElementById('startVid').click();
+			    			document.getElementById('recordingImg').style.display = 'inline';
+	 							document.getElementById('stoppedRec').style.display = 'none';
+			    			livewavesurfer.microphone.start();
+			    		}, 6000);
+
+			    		setTimeout(function() {
+			    			document.getElementById('stopVid').click();
+			    			document.getElementById('recordingImg').style.display = 'none';
+	 							document.getElementById('stoppedRec').style.display = 'inline';
+	 							livewavesurfer.microphone.stop();
+			    		}, 11000);
+					});
+				}
+			});
+    	}	
+	});
+
+    demoSubmit.addEventListener('click', (ev) =>
+	{
+		ev.preventDefault();
+		let duname = document.getElementById('dUser').value;
+    	if(duname == '')
+    	{
+        		alert('Enter valid Speaker ID');
+        }
+        else
+        {
+        	$.ajax({
+			    type: 'POST',
+			    url: "/getdemoUser",
+			    async: true,
+			    data: 
+			        JSON.stringify({
+			            user: duname
+			    }),
+			    dataType: 'json',
+			    contentType: 'application/json; charset=utf-8',
+			    success: function () {
+					$.get("/getdemoUser", function(data, status)
+					{
+						serverData = data;
+				    	console.log('Data from Server:' + serverData);
+						if (serverData === 1) {
+
+							setTimeout(function(){
+								stNo.innerHTML = '1';
+					    		sn.innerHTML = 'ಇದು ಮೊದಲ ಡೆಮೊ ವಾಕ್ಯ';
+					    		preAudio.src = './data/o1.wav';
+					    		preAudio.play();
+				        	}, 1000);
+
+				    		setTimeout(function(){
+							var audio = new Audio('./sounds/beep.wav');
+			        			audio.play();
+				        	}, 6000);
+
+				    		setTimeout(function(){
+				    			document.getElementById('dstartVid').click();
+				    			document.getElementById('recordingImg').style.display = 'inline';
+	 							document.getElementById('stoppedRec').style.display = 'none';
+				    			livewavesurfer.microphone.start();
+				    		}, 7000);
+
+				    		setTimeout(function() {
+				    			document.getElementById('dstopVid').click();
+				    			document.getElementById('recordingImg').style.display = 'none';
+	 							document.getElementById('stoppedRec').style.display = 'inline';
+	 							livewavesurfer.microphone.stop();
+				    		}, 12000);
+
+				    		setTimeout(function(){
+								stNo.innerHTML = 2;
+					    		sn.innerHTML = 'ಇದು ಎರಡನೇ ಡೆಮೊ ವಾಕ್ಯ';
+					    		preAudio.src = './data/o2.wav';
+					    		preAudio.play();
+				        	}, 13000);
+				    		
+				    		setTimeout(function(){
+							var audio = new Audio('./sounds/beep.wav');
+			        			audio.play();
+				        	}, 18000);
+
+				    		setTimeout(function(){
+				    			document.getElementById('dstartVid').click();
+				    			document.getElementById('recordingImg').style.display = 'inline';
+	 							document.getElementById('stoppedRec').style.display = 'none';
+				    			livewavesurfer.microphone.start();
+				    		}, 19000);
+
+				    		setTimeout(function() {
+				    			document.getElementById('dstopVid').click();
+				    			document.getElementById('recordingImg').style.display = 'none';
+	 							document.getElementById('stoppedRec').style.display = 'inline';
+	 							livewavesurfer.microphone.stop();
+				    		}, 24000);
+				    	}
+				    	else
+				    	{
+				    		alert('User Not Found');
+				    		dUser.value = '';
+				    	}
+					});
+				}
+			});
+    	}	
+	});
+
+	conSubmit.addEventListener('click', (ev) =>
+	{
+		ev.preventDefault();
+		let cuname = document.getElementById('cUser').value;
+    	if(cuname == '')
+    	{
+        		alert('Enter valid Speaker ID');
+        }
+        else
+        {
+        	$.ajax({
+			    type: 'POST',
+			    url: "/getconUser",
+			    async: true,
+			    data: 
+			        JSON.stringify({
+			            user: cuname
+			    }),
+			    dataType: 'json',
+			    contentType: 'application/json; charset=utf-8',
+			    success: function () {
+					$.get("/getconUser", function(data, status)
+					{
+						serverData = data;
+				    	console.log('Data from Server:' + serverData);
+						if (serverData === 1) {
+
+							setTimeout(function(){
+								stNo.innerHTML = '1';
+					    		sn.innerHTML = 'ಇದು ಮೊದಲ ಡೆಮೊ ವಾಕ್ಯ';
+					    		preAudio.src = './data/o1.wav';
+				        	}, 1000);
+
+				    		setTimeout(function(){
+							var audio = new Audio('./sounds/beep.wav');
+			        			audio.play();
+				        	}, 6000);
+
+				    		setTimeout(function(){
+				    			document.getElementById('cstartVid').click();
+				    			document.getElementById('recordingImg').style.display = 'inline';
+	 							document.getElementById('stoppedRec').style.display = 'none';
+				    			livewavesurfer.microphone.start();
+				    		}, 7000);
+
+				    		setTimeout(function() {
+				    			document.getElementById('cstopVid').click();
+				    			document.getElementById('recordingImg').style.display = 'none';
+	 							document.getElementById('stoppedRec').style.display = 'inline';
+	 							livewavesurfer.microphone.stop();
+				    		}, 67000);
+				    	}
+				    	else
+				    	{
+				    		alert('User Not Found');
+				    		cUser.value = '';
+				    	}
+					});
+				}
+			});
+    	}	
+	});
+	</script>
+</body>
+</html>
