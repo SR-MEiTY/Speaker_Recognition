@@ -74,12 +74,9 @@
 	box-shadow: 1px 1px 5px 5px gray;
 }
 .close_menu{
-	border-radius: 50px;
 	border: 1px solid black;
-	padding: 5px;
-	position: absolute;
-	top: 0px;
-	right: 10px; 
+	position: relative;
+	text-align: right;
 }
 label{	
 	color: black;	
@@ -262,24 +259,21 @@ input{
 	font-weight: bold;
 }
 .speaker_id_input{
-	width: 75vw;
+	position: relative;
+	width: 30%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 .forgot_speaker_id{
-	position: fixed;
-	top: 45vh;
-	left: 15vw;
-	width: 75vw;
+	position: relative;
+	width: 75%;
 	display: flex;
 	flex-direction: column !important;
 	justify-content: space-between;
-	border: 1px solid black;
-	visibility: hidden;
-	background-color: white;
-	box-shadow: 5px 5px 10px 15px gray;
+	/*visibility: hidden;*/
+	background-color: rgba(112, 181, 150, 0.1);
 	opacity: 1;
-	padding: 30px;
 	border-radius: 5px;
+	text-align: center;
 }

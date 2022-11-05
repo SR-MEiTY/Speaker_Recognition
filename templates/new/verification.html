@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -52,8 +53,8 @@
 	<body lang="en-IN">
 
 		<div class="flex-container title_pane">
-			<img src="{{url_for('static', filename='/images/new/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI">
-			<img src="{{url_for('static', filename='/images/new/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px">
+			<a href="https://www.meity.gov.in/national-language-translation-mission"><img src="{{url_for('static', filename='/images/new/gov-logo-1.png')}}" alt="MeitY, GoI, logo" title="MeitY, GoI"></a>
+			<a href="https://sr-meity.github.io/Manuals/"><img src="{{url_for('static', filename='/images/new/i-SpeakR_icon2.bmp')}}" alt="i-SpeakR logo" title="i-SpeakR" height="75px"></a>
 		</div>
 
 		<div class="flex-container menu_pane">
@@ -82,27 +83,28 @@
 
 		<form action="/" method="post" id="goto_demo_home"></form>
 
-		<div class="flex-container dashboard flex_col" style="min-height: 500px;">
-			<div class="content_space flex_row">
+		<div class="flex-container dashboard">
+
+			<div class="flex_row" style="position: relative; width: 100%;">
 				<div class="heading1 flex-row">DEMO</div>
 				<div class="heading2">i-SpeakR - Testing Module</div>
 				<img src="{{url_for('static', filename='/images/new/home_icon.png')}}" onclick="document.getElementById('goto_demo_home').submit()" width="30px" class="hyperlink" title="Goto DEMO homepage"/>
 			</div>
 
+			<form class="audioForm" name="audioForm" id="audioForm">
 			<div class="content_space">
-				<form class="audioForm" name="audioForm" id="audioForm">
-				<div class="subsection">
-					<div class="speaker_id_input">
-						<div><label for="speakerID">Enter the Speaker ID: </label></div>
+				<div class="subsection flex_row">
+					<div class="speaker_id_input flex_col">
+						<div><label for="speakerID">Enter the Speaker ID:</label></div>
 						<div><input type="text" name="speakerID" class="speakerID" id="speakerID" required value="AXM33"/></div>
-						<div class="text hyperlink" onclick="show_msg();">Forgot speaker ID</div>
+						<!--<div class="hyperlink" onclick="show_msg();">Forgot speaker ID</div>-->
 					</div>
+
 					<div class="forgot_speaker_id" id="forgot_speaker_id">
-						<div class="close_menu hyperlink" onclick="hide_msg();">&#10060;</div>						<div class="heading2">Format of speaker ID</div>
-						<div class="text">
-							A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b>
-						</div>
+						<!--<div class="close_menu hyperlink" onclick="hide_msg();">&#10060;</div>-->
+						<div class=""><div class="heading2">Format of speaker ID</div>A speaker ID is generated using combinmation of first letter of First Name, first letter of your Last Name, first letter of your Gender and age. <b>For Example, if you have entered speaker details as 'Ganesh' 'Bhosale' 'Male' '25' then your speaker id is 'GBM25'</b></div>
 					</div>
+
 				</div>
 
 				<div class="subsection">
@@ -137,6 +139,9 @@
 				</form>
 
 			</div>
+			
+			<br/><br/><br/><br/><br/><br/><br/><br/>
+
 		</div>
 
 
